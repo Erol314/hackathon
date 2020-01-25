@@ -1,5 +1,12 @@
-{% extends "layout.html" %}
+<link rel="stylesheet" type="text/css" href="../static/test.css" />
+{% extends "layout.html" %} {% block content %}
+<div class="text">
+  Alege facultatea
+</div>
+<select name="colour" method="GET" action="/">
+  {% for colour in colours %}
+  <option value="{{colour}}" selected>{{colour}}</option
+  >" {% endfor %}
+</select>
 
-{% block content %}
-{{ foo }}
-{% endblock %}
+{% endblock %} {% block styles %} {% endblock %}
