@@ -1,5 +1,5 @@
-from lib2to3.pytree import convert
-
+from excel2json import convert_from_file
+import xlrd
 from flask import Flask, render_template
 import xmltodict
 import json
@@ -11,20 +11,22 @@ app = Flask(__name__)
 from excel2json import convert_from_file
 
 
-EXCEL_FILE = r'C:\Users\sezgh\Downloads\Telegram Desktop\Hackathon\FCIM BUGET.xlsx # or '../example.xlsx'
-convert(EXCEL_FILE)
 
 
 @app.route('/')
 def index():
-    return render_template('index.html', foo='ero')
+    EXCEL_FILE = r'C:\Users\sezgh\Downloads\Telegram Desktop\Hackathon\FCIM BUGET.xlsx'
+    # foo = convert_from_file(EXCEL_FILE, )
 
-#
-# if __name__ == '__main__':
-#     with open(r'C:\Users\sezgh\Downloads\Telegram Desktop\Hackathon\FCIM BUGET.xlsx') as in_file:
-#         xml = in_file.read()
-#         with open('jsondata.json', 'w') as out_file:
-#             pprint(json.dump(xmltodict.parse(xml), out_file))
+
+    # //workbook = xlrd.open_workbook(r'C:\Users\sezgh\Downloads\Telegram Desktop\Hackathon\FCIM BUGET.xlsx')
+    f = open("demofile.txt", "r")
+    for x in f:
+        print(x)
+
+    return render_template('index.html', foo=foo)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

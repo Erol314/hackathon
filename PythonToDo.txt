@@ -1,0 +1,17 @@
+1)Select speciality
+
+2)get sigma then miu
+
+3)get user grades X
+
+4)use formula  (X-miu)/sigma to get T
+
+5)use second formula with:
+
+def normalProbabilityDensity(x):
+    constant = 1.0 / np.sqrt(2*np.pi)
+    return(constant * np.exp((-x**2) / 2.0) )
+
+probability = quad(quad(normalProbabilityDensity, np.NINF, T)
+
+6)show probability
